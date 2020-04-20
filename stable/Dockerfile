@@ -33,11 +33,11 @@ RUN set -x \
     && apk add -q --no-cache --virtual .build-deps \
         curl \
     && apk add -q --no-cache \
-        bash shadow tzdata \
-    && curl -sSL https://mumble.info/snapshot/murmur-static_x86-${VERSION}.tar.bz2 -o /tmp/murmur.tar.bz2 \
-    && tar -jx -f /tmp/murmur.tar.bz2 --strip-components=1 -C /opt/murmur \
+        murmur bash shadow tzdata \
+    # && curl -sSL https://mumble.info/snapshot/murmur-static_x86-${VERSION}.tar.bz2 -o /tmp/murmur.tar.bz2 \
+    # && tar -jx -f /tmp/murmur.tar.bz2 --strip-components=1 -C /opt/murmur \
     && bash -c 'mkdir -p {cert,config,data,log}' \
-    && mv /opt/murmur/murmur.ini /opt/murmur/murmur.ini-default \
+    && cp /etc/murmur.ini /opt/murmur/murmur.ini-default \
     && chown -R murmur:murmur /opt/murmur \
     && apk del -q --purge .build-deps \
     && rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
