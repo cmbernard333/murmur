@@ -21,7 +21,7 @@ CONFIGDIR=${BASEDIR}/config
 DATADIR=${BASEDIR}/data
 LOGDIR=${BASEDIR}/log
 
-MURMUR=${BASEDIR}/murmur.x86
+MURMUR=/usr/bin/murmurd
 
 MURMUR_OPTS="${MURMUR_OPTS}"
 
